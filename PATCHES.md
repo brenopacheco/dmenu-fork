@@ -1,7 +1,7 @@
 # Patch list
 
 
-- [ ] separator
+- [x] separator
     + https://tools.suckless.org/dmenu/patches/separator/dmenu-separator-5.2.patch
     + splits input with delimiter `-d <delimiter>` into text that is shown and
       text that is output upon selection. e.g: `alpha` is shown, `beta charlie` 
