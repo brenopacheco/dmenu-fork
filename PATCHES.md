@@ -15,9 +15,9 @@
 - [x] fuzzymatch
     + https://tools.suckless.org/dmenu/patches/fuzzymatch/dmenu-fuzzymatch-4.9.diff
     + adds fuzzy matching. disable with `-F` flag
-- [ ] fuzzyhighlight
+- [x] fuzzyhighlight
     + *https://tools.suckless.org/dmenu/patches/fuzzyhighlight/dmenu-fuzzyhighlight-caseinsensitive-4.9.diff*
-    + makes fuzzy matches gets highlighted
+    + makes fuzzy matches gets highlighted, adds `[-nhb color] [-nhf color] [-shb color] [-shf color]`
 - [x] lineheight
     + *https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff*
     + adds `-h` option to specify bar height
