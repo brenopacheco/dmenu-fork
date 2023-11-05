@@ -12,12 +12,9 @@
 - [x] border
     + *https://tools.suckless.org/dmenu/patches/border/dmenu-border-20230512-0fe460d.diff*
     + adds a border around the dmenu window using `-bw 3`. pair it with #center
-- [ ] listfullwidth
-    + *https://tools.suckless.org/dmenu/patches/listfullwidth/dmenu-listfullwidth-5.0.diff*
-    + removes left indentation from options
-- [ ] fuzzymatch
+- [x] fuzzymatch
     + https://tools.suckless.org/dmenu/patches/fuzzymatch/dmenu-fuzzymatch-4.9.diff
-    + adds fuzzy matching through `-F` flag
+    + adds fuzzy matching. disable with `-F` flag
 - [ ] fuzzyhighlight
     + *https://tools.suckless.org/dmenu/patches/fuzzyhighlight/dmenu-fuzzyhighlight-caseinsensitive-4.9.diff*
     + makes fuzzy matches gets highlighted
