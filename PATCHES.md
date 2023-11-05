@@ -24,6 +24,6 @@
 - [ ] lineheight
     + *https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff*
     + adds `-h` option to specify bar height
-- [ ] numbers
+- [x] numbers
     + *https://tools.suckless.org/dmenu/patches/numbers/dmenu-numbers-20220512-28fb3e2.diff*
     + adds count to the end of list. e.g: [4/52]
