@@ -6,12 +6,12 @@
     + splits input with delimiter `-d <delimiter>` into text that is shown and
       text that is output upon selection. e.g: `alpha` is shown, `beta charlie` 
       is output: `echo "alpha beta charlie" | ./dmenu -d ' '`
-- [ ] center
+- [x] center
     + *https://tools.suckless.org/dmenu/patches/center/dmenu-center-5.2.diff*
     + centers dmenu in the middle of the screen using `-c` flag
-- [ ] border
+- [x] border
     + *https://tools.suckless.org/dmenu/patches/border/dmenu-border-20230512-0fe460d.diff*
-    + adds a border around the dmenu window. pair it with #center
+    + adds a border around the dmenu window using `-bw 3`. pair it with #center
 - [ ] listfullwidth
     + *https://tools.suckless.org/dmenu/patches/listfullwidth/dmenu-listfullwidth-5.0.diff*
     + removes left indentation from options
