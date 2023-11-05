@@ -64,9 +64,6 @@ static Clr *scheme[SchemeLast];
 
 #include "config.h"
 
-static int (*fstrncmp)(const char *, const char *, size_t) = strncmp;
-static char *(*fstrstr)(const char *, const char *) = strstr;
-
 static unsigned int
 textw_clamp(const char *str, unsigned int n)
 {
@@ -147,6 +144,9 @@ cistrstr(const char *h, const char *n)
 	}
 	return NULL;
 }
+
+static int (*fstrncmp)(const char *, const char *, size_t) = strncasecmp;
+static char *(*fstrstr)(const char *, const char *) = cistrstr;
 
 static void
 drawhighlights(struct item *item, int x, int y, int maxw)
@@ -872,7 +872,7 @@ setup(void)
 	swa.override_redirect = True;
 	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
 	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
-	win = XCreateWindow(dpy, root, x, y, mw, mh, border_width,
+	win = XCreateWindow(dpy, root, x, y, mw - 2 * border_width, mh - 2 * border_width, border_width,
 	                    CopyFromParent, CopyFromParent, CopyFromParent,
 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
 	if (border_width)
@@ -905,9 +905,9 @@ setup(void)
 static void
 usage(void)
 {
-	die("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+	die("usage: dmenu [-bfsvF] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
 	    "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n"
-	    "             [-d separator] [-D separator] [-h height]\n"
+	    "             [-d separator] [-h height] [-bw border-width]\n"
 	    "             [-nhb color] [-nhf color] [-shb color] [-shf color]");
 }
 
@@ -929,11 +929,11 @@ main(int argc, char *argv[])
 			fast = 1;
 		else if (!strcmp(argv[i], "-F"))   /* grabs keyboard before reading stdin */
 			fuzzy = 0;
-		else if (!strcmp(argv[i], "-c"))   /* centers dmenu on screen */
-			centered = 1;
-		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
-			fstrncmp = strncasecmp;
-			fstrstr = cistrstr;
+		else if (!strcmp(argv[i], "-t"))   /* appears at the top of screen */
+			centered = 0;
+		else if (!strcmp(argv[i], "-s")) { /* case-sensitive item matching */
+			fstrncmp = strncmp;
+			fstrstr = strstr;
 		} else if (i + 1 == argc)
 			usage();
 		/* these options take one argument */
@@ -967,9 +967,8 @@ main(int argc, char *argv[])
 			colors[SchemeSelHighlight][ColFg] = argv[++i];
 		else if (!strcmp(argv[i], "-w"))   /* embedding window id */
 			embed = argv[++i];
-		else if (!strcmp(argv[i], "-d") || /* field separator */
-		         !strcmp(argv[i], "-D")) {
-			sepchr = argv[i][1] == 'D' ? strrchr : strchr;
+		else if (!strcmp(argv[i], "-d")) { /* field separator */
+			sepchr = strchr;
 			separator = argv[++i][0];
 			separator_reverse = argv[i][1] == '|';
 		}
