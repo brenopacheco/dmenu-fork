@@ -8,7 +8,7 @@
       is output: `echo "alpha beta charlie" | ./dmenu -d ' '`
 - [ ] center
     + *https://tools.suckless.org/dmenu/patches/center/dmenu-center-5.2.diff*
-    + centers dmenu in the middle of the screen
+    + centers dmenu in the middle of the screen using `-c` flag
 - [ ] border
     + *https://tools.suckless.org/dmenu/patches/border/dmenu-border-20230512-0fe460d.diff*
     + adds a border around the dmenu window. pair it with #center
