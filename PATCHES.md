@@ -21,7 +21,7 @@
 - [ ] fuzzyhighlight
     + *https://tools.suckless.org/dmenu/patches/fuzzyhighlight/dmenu-fuzzyhighlight-caseinsensitive-4.9.diff*
     + makes fuzzy matches gets highlighted
-- [ ] lineheight
+- [x] lineheight
     + *https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff*
     + adds `-h` option to specify bar height
 - [x] numbers
