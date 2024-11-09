@@ -20,8 +20,6 @@ index 323f93c..d511148 100644
 +.IR separator ]
 +.RB [ \-D
 +.IR separator ]
- .P
- .BR dmenu_run " ..."
  .SH DESCRIPTION
 @@ -80,6 +84,14 @@ prints version information to stdout, then exits.
  .TP

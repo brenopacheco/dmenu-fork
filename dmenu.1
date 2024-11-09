@@ -35,7 +35,6 @@ dmenu \- dynamic menu
 .RB [ \-d
 .IR separator ]
 .P
-.BR dmenu_run " ..."
 .SH DESCRIPTION
 .B dmenu
 is a dynamic menu for X, which reads a list of newline\-separated items from
@@ -43,10 +42,6 @@ stdin.  When the user selects an item and presses Return, their choice is printe
 to stdout and dmenu terminates.  Entering text will narrow the items to those
 matching the tokens in the input.
 .P
-.B dmenu_run
-is a script used by
-.IR dwm (1)
-which lists programs in the user's $PATH and runs the result in their $SHELL.
 .SH OPTIONS
 .TP
 .B \-b
@@ -230,6 +225,3 @@ Page up
 .TP
 .B M\-l
 Down
-.SH SEE ALSO
-.IR dwm (1),
-.IR stest (1)
