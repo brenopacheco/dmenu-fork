@@ -19,6 +19,9 @@ dmenu: dmenu.o drw.o util.o
 clean:
 	rm -f dmenu dmenu-*.tar.gz $(OBJ)
 
+version:
+	@echo ${VERSION}
+
 dist: all
 	tar --create --file=dmenu-${VERSION}.tar --transform 's,^,bin/,' --mode='755' dmenu
 	tar --append --file=dmenu-${VERSION}.tar --transform 's,^,share/man/man1/,' --mode='644' dmenu.1
