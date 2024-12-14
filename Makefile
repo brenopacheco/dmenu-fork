@@ -26,6 +26,6 @@ dist: all
 	tar --create --file=dmenu-${VERSION}.tar --transform 's,^,bin/,' --mode='755' dmenu
 	tar --append --file=dmenu-${VERSION}.tar --transform 's,^,share/man/man1/,' --mode='644' dmenu.1
 	tar --append --file=dmenu-${VERSION}.tar --transform 's,^,share/licenses/dmenu/,' --mode='644' LICENSE
-	gzip dmenu-${VERSION}.tar
+	gzip -f dmenu-${VERSION}.tar
 
 .PHONY: all clean dist
